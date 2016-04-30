@@ -10,12 +10,12 @@
 
 
 <Ontology xmlns="http://www.w3.org/2002/07/owl#"
-     xml:base="http://www.ywzhao.info/ontologies/ARINC653"
+     xml:base="http://www.pos.info/ontologies/ARINC653"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     ontologyIRI="http://www.ywzhao.info/ontologies/ARINC653">
+     ontologyIRI="http://www.pos.info/ontologies/ARINC653">
     <Prefix name="" IRI="http://www.w3.org/2002/07/owl#"/>
     <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
     <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
@@ -194,9 +194,6 @@
     </Declaration>
     <Declaration>
         <Class IRI="#QueuingSrcPort"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Resource"/>
     </Declaration>
     <Declaration>
         <Class IRI="#SamplingChannel"/>
@@ -837,8 +834,8 @@
     <EquivalentClasses>
         <Class IRI="#BufferWaitType"/>
         <ObjectOneOf>
-            <NamedIndividual IRI="#WAITING_W"/>
             <NamedIndividual IRI="#WAITING_R"/>
+            <NamedIndividual IRI="#WAITING_W"/>
         </ObjectOneOf>
     </EquivalentClasses>
     <EquivalentClasses>
@@ -1108,21 +1105,21 @@
     <EquivalentClasses>
         <Class IRI="#ErrorCodeType"/>
         <ObjectOneOf>
-            <NamedIndividual IRI="#HARDWARE_FAULT"/>
+            <NamedIndividual IRI="#APPLICATION_ERROR"/>
             <NamedIndividual IRI="#STACK_OVERFLOW"/>
-            <NamedIndividual IRI="#DEADLINE_MISSED"/>
-            <NamedIndividual IRI="#POWER_FAIL"/>
+            <NamedIndividual IRI="#MEMORY_VIOLATION"/>
+            <NamedIndividual IRI="#HARDWARE_FAULT"/>
             <NamedIndividual IRI="#ILLEGAL_REQUEST"/>
             <NamedIndividual IRI="#NUMERIC_ERROR"/>
-            <NamedIndividual IRI="#APPLICATION_ERROR"/>
-            <NamedIndividual IRI="#MEMORY_VIOLATION"/>
+            <NamedIndividual IRI="#POWER_FAIL"/>
+            <NamedIndividual IRI="#DEADLINE_MISSED"/>
         </ObjectOneOf>
     </EquivalentClasses>
     <EquivalentClasses>
         <Class IRI="#EventStateType"/>
         <ObjectOneOf>
-            <NamedIndividual IRI="#UP"/>
             <NamedIndividual IRI="#DOWN"/>
+            <NamedIndividual IRI="#UP"/>
         </ObjectOneOf>
     </EquivalentClasses>
     <EquivalentClasses>
@@ -1193,10 +1190,10 @@
     <EquivalentClasses>
         <Class IRI="#OperatingModeType"/>
         <ObjectOneOf>
-            <NamedIndividual IRI="#WARM_START"/>
-            <NamedIndividual IRI="#NORMAL"/>
             <NamedIndividual IRI="#IDLE"/>
             <NamedIndividual IRI="#COLD_START"/>
+            <NamedIndividual IRI="#WARM_START"/>
+            <NamedIndividual IRI="#NORMAL"/>
         </ObjectOneOf>
     </EquivalentClasses>
     <EquivalentClasses>
@@ -1210,13 +1207,13 @@
         <Class IRI="#Partition"/>
         <ObjectMinCardinality cardinality="1">
             <ObjectProperty IRI="#partition_has_OperatingMode"/>
+            <Class IRI="#OperatingModeType"/>
         </ObjectMinCardinality>
     </EquivalentClasses>
     <EquivalentClasses>
         <Class IRI="#Partition"/>
         <ObjectMinCardinality cardinality="1">
             <ObjectProperty IRI="#partition_has_OperatingMode"/>
-            <Class IRI="#OperatingModeType"/>
         </ObjectMinCardinality>
     </EquivalentClasses>
     <EquivalentClasses>
@@ -1278,10 +1275,10 @@
     <EquivalentClasses>
         <Class IRI="#PartitionLevelErrorRecoveryActionType"/>
         <ObjectOneOf>
-            <NamedIndividual IRI="#IGNORE"/>
-            <NamedIndividual IRI="#WARM_RESTART"/>
             <NamedIndividual IRI="#COLD_RESTART"/>
             <NamedIndividual IRI="#IDLE"/>
+            <NamedIndividual IRI="#IGNORE"/>
+            <NamedIndividual IRI="#WARM_RESTART"/>
         </ObjectOneOf>
     </EquivalentClasses>
     <EquivalentClasses>
@@ -1335,8 +1332,8 @@
     <EquivalentClasses>
         <Class IRI="#PortDirectionType"/>
         <ObjectOneOf>
-            <NamedIndividual IRI="#DESTINATION"/>
             <NamedIndividual IRI="#SOURCE"/>
+            <NamedIndividual IRI="#DESTINATION"/>
         </ObjectOneOf>
     </EquivalentClasses>
     <EquivalentClasses>
@@ -1349,10 +1346,10 @@
     <EquivalentClasses>
         <Class IRI="#ProcessStateType"/>
         <ObjectOneOf>
-            <NamedIndividual IRI="#RUNNING"/>
-            <NamedIndividual IRI="#DORMANT"/>
             <NamedIndividual IRI="#READY"/>
+            <NamedIndividual IRI="#DORMANT"/>
             <NamedIndividual IRI="#WAITING"/>
+            <NamedIndividual IRI="#RUNNING"/>
         </ObjectOneOf>
     </EquivalentClasses>
     <EquivalentClasses>
@@ -1400,17 +1397,17 @@
     <EquivalentClasses>
         <Class IRI="#StartConditionType"/>
         <ObjectOneOf>
-            <NamedIndividual IRI="#HM_PARTITION_RESTART"/>
-            <NamedIndividual IRI="#PARTITION_RESTART"/>
-            <NamedIndividual IRI="#HM_MODULE_RESTART"/>
             <NamedIndividual IRI="#NORMAL_START"/>
+            <NamedIndividual IRI="#HM_MODULE_RESTART"/>
+            <NamedIndividual IRI="#PARTITION_RESTART"/>
+            <NamedIndividual IRI="#HM_PARTITION_RESTART"/>
         </ObjectOneOf>
     </EquivalentClasses>
     <EquivalentClasses>
         <Class IRI="#ValidityType"/>
         <ObjectOneOf>
-            <NamedIndividual IRI="#INVALID"/>
             <NamedIndividual IRI="#VALID"/>
+            <NamedIndividual IRI="#INVALID"/>
         </ObjectOneOf>
     </EquivalentClasses>
     <EquivalentClasses>
@@ -1418,58 +1415,50 @@
             <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
             <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">aperiod processes have period &lt; 1 (=0)</Literal>
         </Annotation>
-        <ObjectAllValuesFrom>
+        <ObjectSomeValuesFrom>
             <ObjectProperty IRI="#process_has_PeriodType"/>
             <ObjectOneOf>
                 <NamedIndividual IRI="#APERIOD"/>
             </ObjectOneOf>
-        </ObjectAllValuesFrom>
-        <DataAllValuesFrom>
+        </ObjectSomeValuesFrom>
+        <DataSomeValuesFrom>
             <DataProperty IRI="#process_has_Period"/>
             <DatatypeRestriction>
-                <Datatype IRI="#ARINCTime"/>
+                <Datatype abbreviatedIRI="xsd:unsignedInt"/>
                 <FacetRestriction facet="&xsd;maxExclusive">
-                    <Literal datatypeIRI="http://www.ywzhao.info/ontologies/ARINC653#ARINCTime">1</Literal>
+                    <Literal datatypeIRI="&xsd;unsignedInt">1</Literal>
                 </FacetRestriction>
             </DatatypeRestriction>
-        </DataAllValuesFrom>
+        </DataSomeValuesFrom>
     </EquivalentClasses>
     <EquivalentClasses>
         <Annotation>
             <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
             <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Period processes have period &gt; 0</Literal>
         </Annotation>
-        <ObjectAllValuesFrom>
+        <ObjectSomeValuesFrom>
             <ObjectProperty IRI="#process_has_PeriodType"/>
             <ObjectOneOf>
                 <NamedIndividual IRI="#PERIOD"/>
             </ObjectOneOf>
-        </ObjectAllValuesFrom>
-        <DataAllValuesFrom>
+        </ObjectSomeValuesFrom>
+        <DataSomeValuesFrom>
             <DataProperty IRI="#process_has_Period"/>
             <DatatypeRestriction>
-                <Datatype IRI="#ARINCTime"/>
+                <Datatype abbreviatedIRI="xsd:unsignedInt"/>
                 <FacetRestriction facet="&xsd;minExclusive">
-                    <Literal datatypeIRI="http://www.ywzhao.info/ontologies/ARINC653#ARINCTime">0</Literal>
+                    <Literal datatypeIRI="&xsd;unsignedInt">0</Literal>
                 </FacetRestriction>
             </DatatypeRestriction>
-        </DataAllValuesFrom>
+        </DataSomeValuesFrom>
     </EquivalentClasses>
     <SubClassOf>
         <Class IRI="#Blackboard"/>
         <Class IRI="#CreatedThing"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Blackboard"/>
-        <Class IRI="#Resource"/>
-    </SubClassOf>
-    <SubClassOf>
         <Class IRI="#Buffer"/>
         <Class IRI="#CreatedThing"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Buffer"/>
-        <Class IRI="#Resource"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#BufferWaitType"/>
@@ -1478,10 +1467,6 @@
     <SubClassOf>
         <Class IRI="#Channel"/>
         <Class IRI="#ConfiguredThing"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Channel"/>
-        <Class IRI="#Resource"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#CreatedBlackboard"/>
@@ -1548,10 +1533,6 @@
         <Class IRI="#CreatedThing"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Event"/>
-        <Class IRI="#Resource"/>
-    </SubClassOf>
-    <SubClassOf>
         <Class IRI="#EventStateType"/>
         <Class IRI="#EnumDataType"/>
     </SubClassOf>
@@ -1565,7 +1546,7 @@
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Message"/>
-        <Class IRI="#Resource"/>
+        <Class IRI="#BasicDataType"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#MessagewithTime"/>
@@ -1574,6 +1555,10 @@
     <SubClassOf>
         <Class IRI="#ModularErrorActionType"/>
         <Class IRI="#BasicDataType"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Module"/>
+        <Class IRI="#ConfiguredThing"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#ModuleErrorActions4State"/>
@@ -1612,10 +1597,6 @@
         <Class IRI="#ConfiguredThing"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Partition"/>
-        <Class IRI="#Resource"/>
-    </SubClassOf>
-    <SubClassOf>
         <Class IRI="#PartitionErrorActionType"/>
         <Class IRI="#BasicDataType"/>
     </SubClassOf>
@@ -1640,10 +1621,6 @@
         <Class IRI="#ConfiguredThing"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Port"/>
-        <Class IRI="#Resource"/>
-    </SubClassOf>
-    <SubClassOf>
         <Class IRI="#PortDirectionType"/>
         <Class IRI="#EnumDataType"/>
     </SubClassOf>
@@ -1654,10 +1631,6 @@
     <SubClassOf>
         <Class IRI="#Process"/>
         <Class IRI="#CreatedThing"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Process"/>
-        <Class IRI="#Resource"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#ProcessPeriodType"/>
@@ -1744,10 +1717,6 @@
         <Class IRI="#CreatedThing"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Semaphore"/>
-        <Class IRI="#Resource"/>
-    </SubClassOf>
-    <SubClassOf>
         <Class IRI="#SourcePort"/>
         <Class IRI="#Port"/>
     </SubClassOf>
@@ -1762,62 +1731,40 @@
     <SubClassOf>
         <Annotation>
             <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-            <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Partitions have READY or RUNNING processes are in NORMAL</Literal>
-        </Annotation>
-        <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="#partition_has_Processes"/>
-            <ObjectAllValuesFrom>
-                <ObjectProperty IRI="#process_has_State"/>
-                <ObjectOneOf>
-                    <NamedIndividual IRI="#RUNNING"/>
-                    <NamedIndividual IRI="#READY"/>
-                </ObjectOneOf>
-            </ObjectAllValuesFrom>
-        </ObjectSomeValuesFrom>
-        <ObjectAllValuesFrom>
-            <ObjectProperty IRI="#partition_has_OperatingMode"/>
-            <ObjectOneOf>
-                <NamedIndividual IRI="#NORMAL"/>
-            </ObjectOneOf>
-        </ObjectAllValuesFrom>
-    </SubClassOf>
-    <SubClassOf>
-        <Annotation>
-            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
             <Literal datatypeIRI="&xsd;string">state of processes in {NORMAL, COLD_START,WARM_START} partitions is WAITING or DORMANT</Literal>
         </Annotation>
-        <ObjectAllValuesFrom>
+        <ObjectSomeValuesFrom>
             <ObjectProperty IRI="#is_a_Process_of_Partition"/>
-            <ObjectAllValuesFrom>
+            <ObjectSomeValuesFrom>
                 <ObjectProperty IRI="#partition_has_OperatingMode"/>
                 <ObjectOneOf>
-                    <NamedIndividual IRI="#WARM_START"/>
                     <NamedIndividual IRI="#IDLE"/>
                     <NamedIndividual IRI="#COLD_START"/>
+                    <NamedIndividual IRI="#WARM_START"/>
                 </ObjectOneOf>
-            </ObjectAllValuesFrom>
-        </ObjectAllValuesFrom>
-        <ObjectAllValuesFrom>
+            </ObjectSomeValuesFrom>
+        </ObjectSomeValuesFrom>
+        <ObjectSomeValuesFrom>
             <ObjectProperty IRI="#process_has_State"/>
             <ObjectOneOf>
                 <NamedIndividual IRI="#DORMANT"/>
                 <NamedIndividual IRI="#WAITING"/>
             </ObjectOneOf>
-        </ObjectAllValuesFrom>
+        </ObjectSomeValuesFrom>
     </SubClassOf>
     <SubClassOf>
         <Annotation>
             <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
             <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Lock level of Partitions in COLDSTART or WARMSTART is larger than 0</Literal>
         </Annotation>
-        <ObjectAllValuesFrom>
+        <ObjectSomeValuesFrom>
             <ObjectProperty IRI="#partition_has_OperatingMode"/>
             <ObjectOneOf>
-                <NamedIndividual IRI="#WARM_START"/>
                 <NamedIndividual IRI="#COLD_START"/>
+                <NamedIndividual IRI="#WARM_START"/>
             </ObjectOneOf>
-        </ObjectAllValuesFrom>
-        <DataAllValuesFrom>
+        </ObjectSomeValuesFrom>
+        <DataSomeValuesFrom>
             <DataProperty IRI="#partition_has_LockLevel"/>
             <DatatypeRestriction>
                 <Datatype abbreviatedIRI="xsd:unsignedInt"/>
@@ -1825,19 +1772,19 @@
                     <Literal datatypeIRI="&xsd;unsignedInt">0</Literal>
                 </FacetRestriction>
             </DatatypeRestriction>
-        </DataAllValuesFrom>
+        </DataSomeValuesFrom>
     </SubClassOf>
     <SubClassOf>
         <Annotation>
             <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
             <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">IDLE partitions have no processes</Literal>
         </Annotation>
-        <ObjectAllValuesFrom>
+        <ObjectSomeValuesFrom>
             <ObjectProperty IRI="#partition_has_OperatingMode"/>
             <ObjectOneOf>
                 <NamedIndividual IRI="#IDLE"/>
             </ObjectOneOf>
-        </ObjectAllValuesFrom>
+        </ObjectSomeValuesFrom>
         <ObjectMaxCardinality cardinality="0">
             <ObjectProperty IRI="#partition_has_Processes"/>
         </ObjectMaxCardinality>
@@ -1847,15 +1794,37 @@
             <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
             <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">NORMAL partitions have processes</Literal>
         </Annotation>
-        <ObjectAllValuesFrom>
+        <ObjectSomeValuesFrom>
             <ObjectProperty IRI="#partition_has_OperatingMode"/>
             <ObjectOneOf>
                 <NamedIndividual IRI="#NORMAL"/>
             </ObjectOneOf>
-        </ObjectAllValuesFrom>
+        </ObjectSomeValuesFrom>
         <ObjectMinCardinality cardinality="1">
             <ObjectProperty IRI="#partition_has_Processes"/>
         </ObjectMinCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Partitions have READY or RUNNING processes are in NORMAL</Literal>
+        </Annotation>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#partition_has_Processes"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#process_has_State"/>
+                <ObjectOneOf>
+                    <NamedIndividual IRI="#READY"/>
+                    <NamedIndividual IRI="#RUNNING"/>
+                </ObjectOneOf>
+            </ObjectSomeValuesFrom>
+        </ObjectSomeValuesFrom>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#partition_has_OperatingMode"/>
+            <ObjectOneOf>
+                <NamedIndividual IRI="#NORMAL"/>
+            </ObjectOneOf>
+        </ObjectSomeValuesFrom>
     </SubClassOf>
     <SubClassOf>
         <Annotation>
@@ -1865,12 +1834,12 @@
         <ObjectMinCardinality cardinality="1">
             <ObjectProperty IRI="#is_a_Proc_wf_Blackboard"/>
         </ObjectMinCardinality>
-        <ObjectAllValuesFrom>
+        <ObjectSomeValuesFrom>
             <ObjectProperty IRI="#process_has_State"/>
             <ObjectOneOf>
                 <NamedIndividual IRI="#WAITING"/>
             </ObjectOneOf>
-        </ObjectAllValuesFrom>
+        </ObjectSomeValuesFrom>
     </SubClassOf>
     <SubClassOf>
         <Annotation>
@@ -1880,12 +1849,12 @@
         <ObjectMinCardinality cardinality="1">
             <ObjectProperty IRI="#is_a_Proc_wf_Buffer"/>
         </ObjectMinCardinality>
-        <ObjectAllValuesFrom>
+        <ObjectSomeValuesFrom>
             <ObjectProperty IRI="#process_has_State"/>
             <ObjectOneOf>
                 <NamedIndividual IRI="#WAITING"/>
             </ObjectOneOf>
-        </ObjectAllValuesFrom>
+        </ObjectSomeValuesFrom>
     </SubClassOf>
     <SubClassOf>
         <Annotation>
@@ -1895,12 +1864,12 @@
         <ObjectMinCardinality cardinality="1">
             <ObjectProperty IRI="#is_a_Proc_wf_Event"/>
         </ObjectMinCardinality>
-        <ObjectAllValuesFrom>
+        <ObjectSomeValuesFrom>
             <ObjectProperty IRI="#process_has_State"/>
             <ObjectOneOf>
                 <NamedIndividual IRI="#WAITING"/>
             </ObjectOneOf>
-        </ObjectAllValuesFrom>
+        </ObjectSomeValuesFrom>
     </SubClassOf>
     <SubClassOf>
         <Annotation>
@@ -1910,12 +1879,12 @@
         <ObjectMinCardinality cardinality="1">
             <ObjectProperty IRI="#is_a_Proc_wf_QueuingPort"/>
         </ObjectMinCardinality>
-        <ObjectAllValuesFrom>
+        <ObjectSomeValuesFrom>
             <ObjectProperty IRI="#process_has_State"/>
             <ObjectOneOf>
                 <NamedIndividual IRI="#WAITING"/>
             </ObjectOneOf>
-        </ObjectAllValuesFrom>
+        </ObjectSomeValuesFrom>
     </SubClassOf>
     <SubClassOf>
         <Annotation>
@@ -1925,19 +1894,19 @@
         <ObjectMinCardinality cardinality="1">
             <ObjectProperty IRI="#is_a_Proc_wf_Semaphore"/>
         </ObjectMinCardinality>
-        <ObjectAllValuesFrom>
+        <ObjectSomeValuesFrom>
             <ObjectProperty IRI="#process_has_State"/>
             <ObjectOneOf>
                 <NamedIndividual IRI="#WAITING"/>
             </ObjectOneOf>
-        </ObjectAllValuesFrom>
+        </ObjectSomeValuesFrom>
     </SubClassOf>
     <SubClassOf>
         <Annotation>
             <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
             <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">partitions with locklevel=0 are in NORMAL</Literal>
         </Annotation>
-        <DataAllValuesFrom>
+        <DataSomeValuesFrom>
             <DataProperty IRI="#partition_has_LockLevel"/>
             <DatatypeRestriction>
                 <Datatype abbreviatedIRI="xsd:unsignedInt"/>
@@ -1945,13 +1914,13 @@
                     <Literal datatypeIRI="&xsd;unsignedInt">1</Literal>
                 </FacetRestriction>
             </DatatypeRestriction>
-        </DataAllValuesFrom>
-        <ObjectAllValuesFrom>
+        </DataSomeValuesFrom>
+        <ObjectSomeValuesFrom>
             <ObjectProperty IRI="#partition_has_OperatingMode"/>
             <ObjectOneOf>
                 <NamedIndividual IRI="#NORMAL"/>
             </ObjectOneOf>
-        </ObjectAllValuesFrom>
+        </ObjectSomeValuesFrom>
     </SubClassOf>
     <DisjointClasses>
         <Class IRI="#DestinationPort"/>
@@ -1978,12 +1947,12 @@
             <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
             <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Partitions have no processes are not in NORMAL</Literal>
         </Annotation>
-        <ObjectAllValuesFrom>
+        <ObjectSomeValuesFrom>
             <ObjectProperty IRI="#partition_has_OperatingMode"/>
             <ObjectOneOf>
                 <NamedIndividual IRI="#NORMAL"/>
             </ObjectOneOf>
-        </ObjectAllValuesFrom>
+        </ObjectSomeValuesFrom>
         <ObjectMaxCardinality cardinality="0">
             <ObjectProperty IRI="#partition_has_Processes"/>
         </ObjectMaxCardinality>
@@ -1993,12 +1962,12 @@
             <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
             <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">there is at most 1 running process in a module</Literal>
         </Annotation>
-        <ObjectAllValuesFrom>
+        <ObjectSomeValuesFrom>
             <ObjectProperty IRI="#process_has_State"/>
             <ObjectOneOf>
                 <NamedIndividual IRI="#RUNNING"/>
             </ObjectOneOf>
-        </ObjectAllValuesFrom>
+        </ObjectSomeValuesFrom>
         <ObjectMinCardinality cardinality="2">
             <ObjectProperty IRI="#process_has_State"/>
         </ObjectMinCardinality>
@@ -2536,12 +2505,12 @@
         <ObjectProperty IRI="#createdObjectProperty"/>
     </SubObjectPropertyOf>
     <InverseObjectProperties>
-        <ObjectProperty IRI="#is_a_Proc_wf_Blackboard"/>
         <ObjectProperty IRI="#blackboard_has_WaitingProcesses"/>
+        <ObjectProperty IRI="#is_a_Proc_wf_Blackboard"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
-        <ObjectProperty IRI="#buffer_has_WaitingProcesses"/>
         <ObjectProperty IRI="#is_a_Proc_wf_Buffer"/>
+        <ObjectProperty IRI="#buffer_has_WaitingProcesses"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
         <ObjectProperty IRI="#is_a_Proc_wf_Event"/>
@@ -2556,40 +2525,40 @@
         <ObjectProperty IRI="#is_Buffer_of_Partition"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
-        <ObjectProperty IRI="#is_CurrentPartition_of_Module"/>
         <ObjectProperty IRI="#module_has_a_CurrentPartition"/>
+        <ObjectProperty IRI="#is_CurrentPartition_of_Module"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
-        <ObjectProperty IRI="#module_has_a_CurrentProcess"/>
         <ObjectProperty IRI="#is_CurrentProcess_of_Module"/>
+        <ObjectProperty IRI="#module_has_a_CurrentProcess"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
         <ObjectProperty IRI="#is_Dest_QueuingPort_of_QueuingChannel"/>
         <ObjectProperty IRI="#queuingChannel_has_a_Dest_QueuingPort"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
-        <ObjectProperty IRI="#partition_has_ErrorHandler"/>
         <ObjectProperty IRI="#is_ErrorHandler_of_Partition"/>
+        <ObjectProperty IRI="#partition_has_ErrorHandler"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
         <ObjectProperty IRI="#is_Event_of_Partition"/>
         <ObjectProperty IRI="#partition_has_Events"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
-        <ObjectProperty IRI="#module_has_a_moduleHMTable"/>
         <ObjectProperty IRI="#is_ModuleHMTable_of_Module"/>
+        <ObjectProperty IRI="#module_has_a_moduleHMTable"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
-        <ObjectProperty IRI="#is_PartitionHMTable_of_Partition"/>
         <ObjectProperty IRI="#partition_has_a_PartitionHMTable"/>
+        <ObjectProperty IRI="#is_PartitionHMTable_of_Partition"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
-        <ObjectProperty IRI="#partition_has_Process_Call_ErrorHandler"/>
         <ObjectProperty IRI="#is_Process_Call_ErrorHandler_of_Partition"/>
+        <ObjectProperty IRI="#partition_has_Process_Call_ErrorHandler"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
-        <ObjectProperty IRI="#is_Semaphore_of_Partition"/>
         <ObjectProperty IRI="#partition_has_Semaphores"/>
+        <ObjectProperty IRI="#is_Semaphore_of_Partition"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
         <ObjectProperty IRI="#is_Src_QueuingPort_of_QueuingChannel"/>
@@ -2608,24 +2577,24 @@
         <ObjectProperty IRI="#partition_has_MemoryRegions"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
-        <ObjectProperty IRI="#is_a_MultiPartitionHMTable_of_Module"/>
         <ObjectProperty IRI="#module_has_MultiPartitionHMTables"/>
+        <ObjectProperty IRI="#is_a_MultiPartitionHMTable_of_Module"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
         <ObjectProperty IRI="#is_a_PartitionHMTable_of_Module"/>
         <ObjectProperty IRI="#module_has_PartitionHMTables"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
-        <ObjectProperty IRI="#module_has_Partitions"/>
         <ObjectProperty IRI="#is_a_Partition_of_Module"/>
+        <ObjectProperty IRI="#module_has_Partitions"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
-        <ObjectProperty IRI="#partition_has_Ports"/>
         <ObjectProperty IRI="#is_a_Port_of_Partition"/>
+        <ObjectProperty IRI="#partition_has_Ports"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
-        <ObjectProperty IRI="#is_a_Proc_wf_QueuingPort"/>
         <ObjectProperty IRI="#queuingPort_has_WaitingProcesses"/>
+        <ObjectProperty IRI="#is_a_Proc_wf_QueuingPort"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
         <ObjectProperty IRI="#partition_has_Processes"/>
@@ -3179,10 +3148,6 @@
         <ObjectProperty IRI="#semaphore_has_QueuDescipline"/>
         <Class IRI="#CreatedSemaphore"/>
     </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#variableObjectProperty"/>
-        <Class IRI="#CreatedEvent"/>
-    </ObjectPropertyDomain>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#blackboard_has_MsgSpace"/>
         <Class IRI="#Message"/>
@@ -3522,10 +3487,6 @@
     <ObjectPropertyRange>
         <ObjectProperty IRI="#semaphore_has_QueuDescipline"/>
         <Class IRI="#QueueDisciplineType"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#variableObjectProperty"/>
-        <Class IRI="#EventStateType"/>
     </ObjectPropertyRange>
     <SubDataPropertyOf>
         <DataProperty IRI="#blackboard_has_Id"/>
@@ -4299,6 +4260,16 @@
     </DataPropertyRange>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#BasicDataType</IRI>
+        <Literal datatypeIRI="&xsd;string">the super class of enum and composed data structure in ARINC 653</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Channel</IRI>
+        <Literal datatypeIRI="&xsd;string">Communication channel for the inter-partition communication</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#ConfiguredThing</IRI>
         <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">the parent class of all system configured resources</Literal>
     </AnnotationAssertion>
@@ -4309,13 +4280,63 @@
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#EnumDataType</IRI>
+        <Literal datatypeIRI="&xsd;string">The super class of enum data structure</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#ErrorIdType</IRI>
+        <Literal datatypeIRI="&xsd;string">ErrorId in the health monitoring. It consists of an ID and a description</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#MemoryRegion</IRI>
+        <Literal datatypeIRI="&xsd;string">Memory regions configured for a partition</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Message</IRI>
+        <Literal datatypeIRI="&xsd;string">Abstract class for inter partition communication messages</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#MessagewithTime</IRI>
+        <Literal datatypeIRI="&xsd;string">message class with sent time</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#ModularErrorActionType</IRI>
+        <Literal datatypeIRI="&xsd;string">The actions responding to errors at modular level. The error occurs not in partition window. It consists of an Err ID and Modular Recovery Action</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#Module</IRI>
         <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">the module (the system)</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#Resource</IRI>
-        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The managable resources at runtime, such as partition, process, communication objects.</Literal>
+        <IRI>#ModuleHMTable</IRI>
+        <Literal datatypeIRI="&xsd;string">Module HM configuration. It maps &quot;module state&quot; to &quot;ModuleRecoveryAction&quot;</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#MultiPartitionErrorActionType</IRI>
+        <Literal datatypeIRI="&xsd;string">The actions responding to errors at modular level. The error occurs in partition window. It consists of an Err ID and Modular Recovery Action</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#PartitionErrorActionType</IRI>
+        <Literal datatypeIRI="&xsd;string">The actions responding to errors at partition level. The error occurs in partition window. It consists of an Err ID and Partition Recovery Action</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#QueuingChannel</IRI>
+        <Literal datatypeIRI="&xsd;string">queuing mode channel</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#SamplingChannel</IRI>
+        <Literal datatypeIRI="&xsd;string">sampling mode channel</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -4362,7 +4383,7 @@
     </DatatypeDefinition>
     <DatatypeDefinition>
         <Datatype IRI="#ARINCMemAddr"/>
-        <Datatype abbreviatedIRI="xsd:unsignedLong"/>
+        <Datatype abbreviatedIRI="xsd:unsignedInt"/>
     </DatatypeDefinition>
     <DatatypeDefinition>
         <Datatype IRI="#ARINCPriority"/>
